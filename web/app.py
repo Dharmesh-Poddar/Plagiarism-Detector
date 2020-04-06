@@ -90,8 +90,22 @@ class Detect(Resource):
             "status": 302,
             "ratio" : ratio,
             "msg": "ratio found successfully"
-            
+
         }
+
+        currentTokens= countTokens(username)
+        users.update({
+        	"Username": username,
+        },{
+            "$set":{
+                "Tokens":currentTokens-1
+            }
+
+
+
+        	})
+
+        return jsonify(retJson)
 
 if __name__=='__main__':
 	app.run('debug='True')
