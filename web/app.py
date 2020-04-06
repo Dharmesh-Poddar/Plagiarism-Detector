@@ -13,7 +13,7 @@ def UserExist(username):
 		return False
 	else:
 	    return True
-	    
+
 
 
 class Register(Resource):
@@ -44,6 +44,20 @@ class Register(Resource):
         return jsonify(retJson)
 
 
+
+class Detect(Resource):
+	def post(self):
+		postedData= request.get_json()
+		username= postedData["username"]
+		password= postedData["password"]
+		text1= postedData["text1"]
+		text2= postedData["text2"]
+
+		if not UserExist(username):
+			retJson{
+			    "status": "301"
+			    "msg": "username not found"
+			}
 
 
 
