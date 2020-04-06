@@ -1,6 +1,7 @@
 from flask import Flask,jsonify,request
 from flask_restful import Api,Resource
-import spacy
+import en_core_web_sm
+
 
 app=Flask(__name__)
 api=Api(app)
@@ -78,6 +79,19 @@ class Detect(Resource):
         	}
         	return jsonify(retJson)
 
+
+
+        nlp = en_core_web_sm.load()
+        text1= nlp(text1)
+        text2= nlp(text2)
+
+        ratio= text1.similarity(text2)
+        retJson{
+            "status": 302,
+            "ratio" : ratio,
+            "msg": "ratio found successfully"
+            
+        }
 
 if __name__=='__main__':
 	app.run('debug='True')
