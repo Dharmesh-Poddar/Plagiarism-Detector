@@ -59,7 +59,15 @@ class Detect(Resource):
 			    "msg": "username not found"
 			}
 
+        correct_pw= verifyPw(username,password)
 
+        if not correct_pw:
+        	retJson{
+        	    "status": 302,
+        	    "msg": "Invalid Password"
+
+        	}
+        	
 
 if __name__=='__main__':
 	app.run('debug='True')
