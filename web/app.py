@@ -63,11 +63,20 @@ class Detect(Resource):
 
         if not correct_pw:
         	retJson{
-        	    "status": 302,
+        	    "status": "302",
         	    "msg": "Invalid Password"
 
         	}
-        	
+        num_tokens =countTokens(username)
+
+        if num_tokens<=0:
+        	retJson{
+        	    "status":303,
+        	    "msg": "you have used all your tokens"
+
+        	}
+        	return jsonify(retJson)
+
 
 if __name__=='__main__':
 	app.run('debug='True')
