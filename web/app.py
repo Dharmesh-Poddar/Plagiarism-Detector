@@ -28,8 +28,12 @@ def verifyPw(username,password):
     	return True
     else:
     	return False
-    	
 
+def countTokens(username):
+    tokens= users.find({
+        "Username": username
+    	})[0]["Tokens"]
+        return tokens 
 
 class Register(Resource):
 	def post(self):
