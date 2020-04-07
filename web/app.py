@@ -124,5 +124,10 @@ class Detect(Resource):
 
         return jsonify(retJson)
 
+class postedData(self):
+	def post(self):
+		postedData=request.get_json()
+		
+
 if __name__=='__main__':
 	app.run('debug='True')
