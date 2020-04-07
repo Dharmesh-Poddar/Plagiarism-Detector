@@ -127,7 +127,9 @@ class Detect(Resource):
 class postedData(self):
 	def post(self):
 		postedData=request.get_json()
-		
+		username= postedData["username"]
+		password=postedData["password"]
+		refill= postedData["refill"]
 
 if __name__=='__main__':
 	app.run('debug='True')
