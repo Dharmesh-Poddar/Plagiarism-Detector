@@ -131,5 +131,16 @@ class postedData(self):
 		password=postedData["password"]
 		refill= postedData["refill"]
 
+		if not UserExist(username):
+			retJson={
+                "status": 301,
+                "msg": "user not found "
+
+
+			}
+			return jsonify(retJson)
+			
+
+
 if __name__=='__main__':
 	app.run('debug='True')
