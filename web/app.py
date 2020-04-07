@@ -139,7 +139,37 @@ class postedData(self):
 
 			}
 			return jsonify(retJson)
-			
+
+			correct_pw=3123123
+			if not password=correct_pw:
+				retJson{
+				    "status": 304,
+				    "msg": "invalid password"
+
+                }
+                return jsonify(retJson)
+
+            users.update({
+                "Username": username
+            },{
+                "$set":
+                {
+                 Tokens: refill_amount
+                }
+
+
+            	})
+            retJson={
+                "status": 200,
+                "message": "refilled successfully"
+            }
+
+api.add_Resource(Register,'/register')
+api.add_Resource(Detect,'/detect')
+api.add_Resource(Refill,'/refill')
+
+
+
 
 
 if __name__=='__main__':
